@@ -23,6 +23,8 @@ jobs:
         distribution: 'adopt'
     - name: Build gauss-rest with Maven
       run: mvn -B package --file rest/pom.xml
+    - name: Make chromedriver executable
+      run: chmod +x test/chromedriver
     - name: Run JAR and tests
       run: |
            java -jar rest/target/gauss-rest-1.5.3.RELEASE.jar &
