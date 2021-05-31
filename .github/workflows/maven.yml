@@ -22,7 +22,10 @@ jobs:
         java-version: '15'
         distribution: 'adopt'
     - name: Set up Chrome
-      uses: browser-actions/setup-chrome@stable
+      run: |
+            sudo apt-get update
+            sudo apt-get --only-upgrade install google-chrome-stable
+            google-chrome --version
     - name: Build gauss-rest with Maven
       run: mvn -B package --file rest/pom.xml
     - name: Make chromedriver executable
