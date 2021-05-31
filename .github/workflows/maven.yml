@@ -23,7 +23,8 @@ jobs:
         distribution: 'adopt'
     - name: Build gauss-rest with Maven
       run: mvn -B package --file rest/pom.xml
-    - name: Run JAR
+    - name: Run JAR and tests
       run: |
-           java -jar rest/target/gauss-rest-1.5.3.RELEASE.jar
-           & mvn clean test --file test/pom.xml
+           java -jar rest/target/gauss-rest-1.5.3.RELEASE.jar &
+           sleep 5
+           mvn clean test --file test/pom.xml
