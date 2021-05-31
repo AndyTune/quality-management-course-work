@@ -21,6 +21,8 @@ jobs:
       with:
         java-version: '15'
         distribution: 'adopt'
+    - name: Set up Chrome
+      uses: browser-actions/setup-chrome@latest
     - name: Build gauss-rest with Maven
       run: mvn -B package --file rest/pom.xml
     - name: Make chromedriver executable
