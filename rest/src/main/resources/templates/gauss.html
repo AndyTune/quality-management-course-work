@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"> 
+    <head>
+
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+
+        <title>Gauss</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular-1.7.5.min.js"></script>
+        <script src="js/gauss.js"></script>
+
+    </head>
+    <body ng-app="gauss" ng-controller="GaussController">
+        
+        <h1>Метод Гаусса</h1>
+
+        <div class="alert alert-danger" role="alert" ng-show="errormessage">{{errormessage}}</div>
+
+        <div>
+            <form role="form" ng-submit="addGauss()">
+                <table id="matrix">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a1" name="a1"  ng-model="a1"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a2" name="a2"  ng-model="a2"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a3" name="a3"  ng-model="a3"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="b1" name="b1"  ng-model="b1"> </input>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a4" name="a4" ng-model="a4"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a5" name="a5" ng-model="a5"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a6" name="a6" ng-model="a6"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="b2" name="b2"  ng-model="b2"> </input>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a7" name="a7" ng-model="a7"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a8" name="a8" ng-model="a8"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="a9" name="a9" ng-model="a9"> </input>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="b3" name="b3"  ng-model="b3"> </input>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <button type="submit" id="calculate" class="btn btn-default">Calculate</button>
+            </form>
+        </div>
+
+        <div ng-controller="getGauss" ng-show="gauss">
+            <table id="gaussTable" class="table table-hover">
+                <thead>
+                <tr>
+                    <th><h5 id="x1">x1</h5></th>
+                    <th><h5 id="x2">x2</h5></th>
+                    <th><h5 id="x3">x3</h5></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                	<td ng-repeat = "x in gauss.x">{{x}}</td>
+                	<td><input type="button" id="cancel" value="Отмена" ng-click="deleteGauss()"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
