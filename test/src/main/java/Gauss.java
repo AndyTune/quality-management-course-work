@@ -1,13 +1,25 @@
-import java.text.DecimalFormat;
-
 public class Gauss {
+
+    private double[][] a;
+    private double[] y;
+    private double[] x;
     
-    public static double[] solve(double[][] a, double[] y, int n) {
+    public double[][] getA() { return a; }
+    void setA(double[][] a) { this.a = a; }
+    public double[] getY() { return y; }
+    void setY(double[] y) { this.y = y; }
+    public double[] getX() { return x; }
+    void setX(double[] x) { this.x = x; }
+    
+    
+    public void solve() {
+        int n = 3;
+
         if (a.length != y.length || a.length != n) {
             throw new IndexOutOfBoundsException("Square matrix size and vector length are different");
         }
 
-        double[] x = new double[n];
+        x = new double[n];
         double max = 0;
         int k, index;
         double eps = 0.00001;  // точность
@@ -62,7 +74,5 @@ public class Gauss {
             for (int i = 0; i < k; i++)
                 y[i] = y[i] - a[i][k] * x[k];
         }
-
-        return x;
     }
 }
