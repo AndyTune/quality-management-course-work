@@ -10,8 +10,12 @@ class UITest {
 
     @org.junit.jupiter.api.BeforeEach
     public void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         System.setProperty("webdriver.chrome.driver", "chromedriver");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
     }
 
     @org.junit.jupiter.api.Test
